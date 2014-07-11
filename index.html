@@ -8,15 +8,55 @@
     <script type='text/javascript' src='lib/angular/angular.min.js'></script><!-- angular js -->
     <script type='text/javascript' src='app.js'></script>
 
-    <h3>{{"Welcome"+" to the Gem Store"}}</h3>
+    <h1>{{"Welcome"+" to the Gem Store"}}</h1>
 
-    <div ng-controller='StoreController as store'>
-      <div class='product row' ng-repeat='product in store.products' ng-hide='product.soldOut'>
-        <h1>{{product.name}}</h1>
-        <h2>${{product.price}}</h2>
-        <em>{{product.description}}</em>
+    <ul class='list-group' ng-controller='StoreController as store'>
+      <div ng-repeat='gem in store.products | orderBy:"-price" ' ng-hide='product.soldOut'>
+        <li class='list-group-item'>
+
+          <!-- Gem Info  -->
+          <h1>{{gem.name | uppercase}}</h1>
+          <h2>{{gem.price | currency}}</h2>
+
+          <!-- Image Gallery  -->
+          <div class="gallery" ng-show={{gem.images.length}}>
+            <img class='img img-circle img-thumbnail center-block' ng-src={{gem.images[0]}}/>
+
+            <ul class="clearfix">
+              <li class="small-image pull-left thumbnail" ng-repeat="image in gem.images">
+                <img ng-src='{{image}}'/>
+              </li>
+            </ul>
+        </div>
+
+        <!-- Tabs  -->
+        <section ng-init='tab = 1'>
+          <ul class='nav nav-pills'>
+            <li> <a href ng-click='tab = 1'> Description </a> </li>
+            <li> <a href ng-click='tab = 2'> Specifications </a> </li>
+            <li> <a href ng-click='tab = 3'> Review </a> </li>
+          </ul>
+
+          <div class='panel' ng-show='tab === 1'>
+            <h4>Description</h4>
+            <p>{{gem.description}}</p>
+          </div>
+
+          <div class='panel' ng-show='tab === 2'>
+            <h4>Specifications</h4>
+            <p>None yet</p>
+          </div>
+
+          <div class='panel' ng-show='tab === 3'>
+            <h4>Review</h4>
+            <p>None yet</p>
+          </div>
+        </section>
+
+
+        </li>
       </div>
-    </div>
+    </ul>
 
   </body>
 </html>

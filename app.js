@@ -12,21 +12,24 @@
       price:2.95,
       description:'Some gems have hidden qualities beyond their luster, beyond their shine... Dodeca is one of this gems.',
       canPurchase:true,
-      soldOut:false
+      soldOut:false,
+      images: ['imgs/gem1.png' , 'imgs/gem1-2.png' ]
     },
     {
       name:'Pentagonal Gem',
       price:5.95,
       description:'Some gems have hidden qualities beyond their luster, beyond their shine... Dodeca is one of this gems.',
       canPurchase:true,
-      soldOut:false
+      soldOut:false,
+      images: ['imgs/gem2.png', 'imgs/gem2-1.png' ]
     },
     {
       name:'Gemy',
-      price:5.95,
+      price:2,
       description:'Some gems have hidden qualities beyond their luster, beyond their shine... Dodeca is one of this gems.',
       canPurchase:true,
-      soldOut:true
+      soldOut:true,
+      images: ['imgs/gem3.png' , 'imgs/gem3-2.png' , 'imgs/gem3-3.png' ]
     }
   ];
 
