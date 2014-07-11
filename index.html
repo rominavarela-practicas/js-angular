@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='store'>
+<html ng-app='gemStore'>
   <head>
     <title>Gem Market</title>
     <link rel='stylesheet' type='text/css' href='lib/bootstrap/css/bootstrap.min.css'/><!-- twitter bootstrap -->
@@ -8,7 +8,15 @@
     <script type='text/javascript' src='lib/angular/angular.min.js'></script><!-- angular js -->
     <script type='text/javascript' src='app.js'></script>
 
-    <p>{{"hello"+" world"}}</p>
+    <h3>{{"Welcome"+" to the Gem Store"}}</h3>
+
+    <div ng-controller='StoreController as store'>
+      <div class='product row' ng-repeat='product in store.products' ng-hide='product.soldOut'>
+        <h1>{{product.name}}</h1>
+        <h2>${{product.price}}</h2>
+        <em>{{product.description}}</em>
+      </div>
+    </div>
 
   </body>
 </html>
